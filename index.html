@@ -1,223 +1,195 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulačka pronájmu</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<!-- Kalkulačka pronájmu - vlož tento kód kamkoliv na stránku -->
+<style>
+    .rental-calculator {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-        }
+    .rental-calculator * {
+        box-sizing: border-box;
+    }
 
-        .calculator {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            width: 100%;
-        }
+    .rental-calculator h2 {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 22px;
+        text-align: center;
+    }
 
-        h1 {
-            margin: 0 0 10px 0;
-            color: #333;
-            font-size: 24px;
-            text-align: center;
-        }
+    .rental-calculator .pricing-info {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+    }
 
-        .pricing-info {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 25px;
-            font-size: 14px;
-            color: #666;
-        }
+    .rental-calculator .pricing-info p {
+        margin: 5px 0;
+    }
 
-        .pricing-info p {
-            margin: 5px 0;
-        }
+    .rental-calculator .input-group {
+        margin-bottom: 20px;
+    }
 
-        .input-group {
-            margin-bottom: 25px;
-        }
+    .rental-calculator label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 500;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-        }
+    .rental-calculator .days-value {
+        font-size: 22px;
+        font-weight: 700;
+        color: #e74c3c;
+    }
 
-        .days-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: #667eea;
-        }
+    .rental-calculator input[type="range"] {
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: #e1e5e9;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+    }
 
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            border-radius: 4px;
-            background: #e1e5e9;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
-        }
+    .rental-calculator input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #e74c3c;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+    }
 
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
-            transition: transform 0.2s;
-        }
+    .rental-calculator input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #e74c3c;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+    }
 
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
+    .rental-calculator .range-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        font-size: 12px;
+        color: #999;
+    }
 
-        input[type="range"]::-moz-range-thumb {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
-        }
+    .rental-calculator .result {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
 
-        .range-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-            font-size: 12px;
-            color: #999;
-        }
+    .rental-calculator .result-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        color: #666;
+        font-size: 14px;
+    }
 
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            display: none;
-        }
+    .rental-calculator .result-row:last-child {
+        margin-bottom: 0;
+        padding-top: 10px;
+        border-top: 2px solid #e1e5e9;
+        color: #333;
+        font-size: 18px;
+        font-weight: 600;
+    }
 
-        .result.show {
-            display: block;
-        }
+    .rental-calculator .total-price {
+        color: #e74c3c;
+    }
+</style>
 
-        .result-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: #666;
-            font-size: 14px;
-        }
+<div class="rental-calculator">
+    <h2>Kalkulačka pronájmu</h2>
 
-        .result-row:last-child {
-            margin-bottom: 0;
-            padding-top: 10px;
-            border-top: 2px solid #e1e5e9;
-            color: #333;
-            font-size: 18px;
-            font-weight: 600;
-        }
+    <div class="pricing-info">
+        <p><strong>Ceník:</strong></p>
+        <p>1-30 dnů: <strong>400 Kč</strong> / den</p>
+        <p>Od 31. dne: <strong>350 Kč</strong> / den</p>
+    </div>
 
-        .total-price {
-            color: #667eea;
-        }
-    </style>
-</head>
-<body>
-    <div class="calculator">
-        <h1>Kalkulačka pronájmu</h1>
-
-        <div class="pricing-info">
-            <p><strong>Ceník:</strong></p>
-            <p>1-30 dnů: <strong>400 Kč</strong> / den</p>
-            <p>Od 31. dne: <strong>350 Kč</strong> / den</p>
-        </div>
-
-        <div class="input-group">
-            <label for="days">Počet dnů pronájmu: <span id="daysValue" class="days-value">1</span></label>
-            <input type="range" id="days" min="1" max="90" value="1" oninput="calculate()">
-            <div class="range-labels">
-                <span>1 den</span>
-                <span>90 dnů</span>
-            </div>
-        </div>
-
-        <div class="result" id="result">
-            <div class="result-row">
-                <span>Dny za 400 Kč:</span>
-                <span id="days400">0 dnů = 0 Kč</span>
-            </div>
-            <div class="result-row">
-                <span>Dny za 350 Kč:</span>
-                <span id="days350">0 dnů = 0 Kč</span>
-            </div>
-            <div class="result-row">
-                <span>Celková cena:</span>
-                <span class="total-price" id="totalPrice">0 Kč</span>
-            </div>
+    <div class="input-group">
+        <label>Počet dnů pronájmu: <span id="rentalDaysValue" class="days-value">1 den</span></label>
+        <input type="range" id="rentalDays" min="1" max="90" value="1" oninput="calculateRental()">
+        <div class="range-labels">
+            <span>1 den</span>
+            <span>90 dnů</span>
         </div>
     </div>
 
-    <script>
-        function calculate() {
-            const daysInput = document.getElementById('days');
-            const days = parseInt(daysInput.value);
+    <div class="result">
+        <div class="result-row">
+            <span>Dny za 400 Kč:</span>
+            <span id="rentalDays400">1 den = 400 Kč</span>
+        </div>
+        <div class="result-row">
+            <span>Dny za 350 Kč:</span>
+            <span id="rentalDays350">0 dnů = 0 Kč</span>
+        </div>
+        <div class="result-row">
+            <span>Celková cena:</span>
+            <span class="total-price" id="rentalTotalPrice">400 Kč</span>
+        </div>
+    </div>
+</div>
 
-            document.getElementById('daysValue').textContent = days + ' ' + getDaysWord(days);
+<script>
+    function calculateRental() {
+        const days = parseInt(document.getElementById('rentalDays').value);
 
-            const priceFirst30 = 400;
-            const priceAfter30 = 350;
+        let daysWord;
+        if (days === 1) daysWord = 'den';
+        else if (days >= 2 && days <= 4) daysWord = 'dny';
+        else daysWord = 'dnů';
 
-            let days400 = Math.min(days, 30);
-            let days350 = Math.max(0, days - 30);
+        document.getElementById('rentalDaysValue').textContent = days + ' ' + daysWord;
 
-            let price400 = days400 * priceFirst30;
-            let price350 = days350 * priceAfter30;
-            let total = price400 + price350;
+        const days400 = Math.min(days, 30);
+        const days350 = Math.max(0, days - 30);
 
-            document.getElementById('days400').textContent =
-                days400 + ' ' + getDaysWord(days400) + ' = ' + formatPrice(price400);
-            document.getElementById('days350').textContent =
-                days350 + ' ' + getDaysWord(days350) + ' = ' + formatPrice(price350);
-            document.getElementById('totalPrice').textContent = formatPrice(total);
+        const price400 = days400 * 400;
+        const price350 = days350 * 350;
+        const total = price400 + price350;
 
-            document.getElementById('result').classList.add('show');
-        }
+        let word400;
+        if (days400 === 1) word400 = 'den';
+        else if (days400 >= 2 && days400 <= 4) word400 = 'dny';
+        else word400 = 'dnů';
 
-        function getDaysWord(count) {
-            if (count === 1) return 'den';
-            if (count >= 2 && count <= 4) return 'dny';
-            return 'dnů';
-        }
+        let word350;
+        if (days350 === 1) word350 = 'den';
+        else if (days350 >= 2 && days350 <= 4) word350 = 'dny';
+        else word350 = 'dnů';
 
-        function formatPrice(price) {
-            return price.toLocaleString('cs-CZ') + ' Kč';
-        }
+        document.getElementById('rentalDays400').textContent =
+            days400 + ' ' + word400 + ' = ' + price400.toLocaleString('cs-CZ') + ' Kč';
+        document.getElementById('rentalDays350').textContent =
+            days350 + ' ' + word350 + ' = ' + price350.toLocaleString('cs-CZ') + ' Kč';
+        document.getElementById('rentalTotalPrice').textContent =
+            total.toLocaleString('cs-CZ') + ' Kč';
+    }
 
-        // Spustit výpočet při načtení stránky
-        calculate();
-    </script>
-</body>
-</html>
+    calculateRental();
+</script>
