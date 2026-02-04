@@ -6,9 +6,22 @@
         border-radius: 16px;
         padding: 30px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        max-width: 400px;
+        max-width: 100%;
         width: 100%;
         box-sizing: border-box;
+    }
+
+    @media (min-width: 500px) {
+        .rental-calculator {
+            max-width: 400px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .rental-calculator {
+            padding: 20px;
+            border-radius: 12px;
+        }
     }
 
     .rental-calculator * {
@@ -119,6 +132,34 @@
     .rental-calculator .total-price {
         color: #e74c3c;
     }
+
+    .rental-calculator .note {
+        margin-top: 15px;
+        padding-top: 12px;
+        border-top: 1px solid #e1e5e9;
+        font-size: 12px;
+        color: #999;
+        text-align: center;
+    }
+
+    @media (max-width: 480px) {
+        .rental-calculator h2 {
+            font-size: 20px;
+        }
+
+        .rental-calculator .days-value {
+            font-size: 20px;
+        }
+
+        .rental-calculator .result-row:last-child {
+            font-size: 16px;
+        }
+
+        .rental-calculator .pricing-info {
+            padding: 12px;
+            font-size: 13px;
+        }
+    }
 </style>
 
 <div class="rental-calculator">
@@ -152,6 +193,10 @@
             <span>Celková cena:</span>
             <span class="total-price" id="rentalTotalPrice">400 Kč</span>
         </div>
+    </div>
+
+    <div class="note">
+        Cena nezahrnuje dopravné
     </div>
 </div>
 
