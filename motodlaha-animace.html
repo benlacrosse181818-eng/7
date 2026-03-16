@@ -4,7 +4,7 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background: white;
         border-radius: 16px;
-        padding: 30px 30px 20px;
+        padding: 25px 20px 20px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         max-width: 600px;
         width: 100%;
@@ -13,15 +13,15 @@
     }
 
     .cpm-animation-container h2 {
-        margin: 0 0 5px 0;
+        margin: 0 0 3px 0;
         color: #333;
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .cpm-animation-container .subtitle {
         color: #999;
         font-size: 13px;
-        margin-bottom: 15px;
+        margin: 0 0 10px 0;
     }
 
     .cpm-animation-container svg {
@@ -35,7 +35,7 @@
         align-items: center;
         justify-content: center;
         gap: 15px;
-        margin-top: 15px;
+        margin-top: 12px;
         flex-wrap: wrap;
     }
 
@@ -59,7 +59,7 @@
         font-size: 16px;
         font-weight: 600;
         color: #333;
-        min-width: 80px;
+        min-width: 90px;
     }
 
     .cpm-animation-container .angle-display span {
@@ -105,12 +105,10 @@
 
     @media (max-width: 480px) {
         .cpm-animation-container {
-            padding: 20px 15px 15px;
+            padding: 15px 10px 12px;
             border-radius: 12px;
         }
-        .cpm-animation-container h2 {
-            font-size: 18px;
-        }
+        .cpm-animation-container h2 { font-size: 17px; }
     }
 </style>
 
@@ -118,91 +116,89 @@
     <h2>Motodlaha - Artromot K1</h2>
     <p class="subtitle">Kontinuální pasivní pohyb kolena</p>
 
-    <svg id="cpmSvg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+    <svg id="cpmSvg" viewBox="20 30 560 250" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="baseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#5ba3d9;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#3a7fc1;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#5ba3d9" />
+                <stop offset="100%" style="stop-color:#3a7fc1" />
             </linearGradient>
             <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#e8e8e8;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#c0c0c0;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#d8d8d8" />
+                <stop offset="100%" style="stop-color:#b0b0b0" />
             </linearGradient>
             <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#f5d0b0;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#e8b88a;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#f5d0b0" />
+                <stop offset="100%" style="stop-color:#e8b88a" />
             </linearGradient>
             <linearGradient id="padGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#f0f4f8;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#dce3eb;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#f5f7fa" />
+                <stop offset="100%" style="stop-color:#e0e6ed" />
             </linearGradient>
-            <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+            <filter id="shadow">
                 <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
             </filter>
         </defs>
 
-        <!-- Base platform -->
-        <ellipse cx="300" cy="275" rx="250" ry="18" fill="url(#baseGrad)" filter="url(#shadow)"/>
-        <text x="300" y="280" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">ARTROMOT - K1</text>
+        <!-- Base platform (blue oval) -->
+        <ellipse cx="300" cy="255" rx="240" ry="16" fill="url(#baseGrad)" filter="url(#shadow)"/>
+        <text x="300" y="259" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">ARTROMOT · K1</text>
 
-        <!-- Thigh rail (fixed) -->
-        <g id="thighRail">
-            <rect x="80" y="230" width="200" height="12" rx="3" fill="url(#metalGrad)" stroke="#aaa" stroke-width="0.5"/>
-            <!-- Thigh pad -->
-            <rect x="90" y="210" width="170" height="22" rx="6" fill="url(#padGrad)" stroke="#ccc" stroke-width="0.5"/>
-            <!-- Thigh straps -->
-            <rect x="120" y="205" width="12" height="32" rx="3" fill="#333"/>
-            <rect x="200" y="205" width="12" height="32" rx="3" fill="#333"/>
-            <!-- Adjustment knobs on thigh rail -->
-            <circle cx="100" cy="247" r="5" fill="#333"/>
-            <circle cx="260" cy="247" r="5" fill="#333"/>
-        </g>
+        <!-- Fixed thigh section -->
+        <!-- Thigh rail -->
+        <rect x="75" y="212" width="210" height="14" rx="4" fill="url(#metalGrad)" stroke="#999" stroke-width="0.5"/>
+        <!-- Thigh support pad -->
+        <rect x="85" y="192" width="180" height="24" rx="8" fill="url(#padGrad)" stroke="#ccc" stroke-width="0.5"/>
+        <!-- Thigh straps -->
+        <rect x="115" y="186" width="14" height="36" rx="4" fill="#444"/>
+        <rect x="195" y="186" width="14" height="36" rx="4" fill="#444"/>
+        <!-- Thigh knobs -->
+        <circle cx="90" cy="232" r="5" fill="#444"/>
+        <circle cx="270" cy="232" r="5" fill="#444"/>
 
-        <!-- Hip joint (pivot) -->
-        <circle cx="280" cy="236" r="7" fill="#555" stroke="#333" stroke-width="1"/>
+        <!-- Knee joint pivot -->
+        <circle cx="280" cy="219" r="8" fill="#666" stroke="#444" stroke-width="1.5"/>
 
-        <!-- Moving shin assembly - pivots at knee -->
-        <g id="shinAssembly">
+        <!-- Shin assembly group - animated -->
+        <g id="shinGroup" transform-origin="280 219">
             <!-- Shin rail -->
-            <rect id="shinRail" x="280" y="230" width="200" height="12" rx="3" fill="url(#metalGrad)" stroke="#aaa" stroke-width="0.5" transform-origin="280 236"/>
-            <!-- Shin pad -->
-            <rect id="shinPad" x="310" y="210" width="140" height="22" rx="6" fill="url(#padGrad)" stroke="#ccc" stroke-width="0.5" transform-origin="280 236"/>
-            <!-- Foot holder -->
-            <rect id="footHolder" x="460" y="200" width="30" height="45" rx="5" fill="url(#padGrad)" stroke="#ccc" stroke-width="1" transform-origin="280 236"/>
+            <rect x="280" y="212" width="210" height="14" rx="4" fill="url(#metalGrad)" stroke="#999" stroke-width="0.5"/>
+            <!-- Shin support pad -->
+            <rect x="305" y="192" width="150" height="24" rx="8" fill="url(#padGrad)" stroke="#ccc" stroke-width="0.5"/>
+            <!-- Foot plate -->
+            <rect x="468" y="182" width="32" height="50" rx="6" fill="url(#padGrad)" stroke="#bbb" stroke-width="1"/>
+            <!-- Foot plate top edge -->
+            <rect x="468" y="182" width="32" height="6" rx="3" fill="#ccc"/>
             <!-- Shin straps -->
-            <rect id="shinStrap1" x="350" y="205" width="12" height="32" rx="3" fill="#333" transform-origin="280 236"/>
-            <rect id="shinStrap2" x="420" y="205" width="12" height="32" rx="3" fill="#333" transform-origin="280 236"/>
-            <!-- Adjustment knob on shin -->
-            <circle id="shinKnob" cx="470" cy="247" r="5" fill="#333" transform-origin="280 236"/>
+            <rect x="340" y="186" width="14" height="36" rx="4" fill="#444"/>
+            <rect x="420" y="186" width="14" height="36" rx="4" fill="#444"/>
+            <!-- Shin knob -->
+            <circle cx="480" cy="232" r="5" fill="#444"/>
         </g>
 
-        <!-- Leg (skin) on top of the machine -->
-        <!-- Thigh -->
-        <g id="legGroup">
-            <!-- Thigh skin -->
-            <path id="thighSkin" d="M120,215 Q130,200 170,198 L240,198 Q260,200 270,215 L270,228 Q260,232 240,232 L140,232 Q125,230 120,215 Z" fill="url(#skinGrad)" opacity="0.9"/>
+        <!-- Thigh skin (fixed) -->
+        <path d="M115,196 C130,180 160,176 200,176 L250,178 C268,182 275,190 278,200 L278,212 C270,216 250,218 230,218 L140,218 C125,216 118,210 115,196 Z"
+              fill="url(#skinGrad)" opacity="0.85"/>
 
-            <!-- Shin skin - will be animated -->
-            <path id="shinSkin" d="" fill="url(#skinGrad)" opacity="0.9"/>
+        <!-- Shin skin - animated via JS -->
+        <path id="shinSkin" d="" fill="url(#skinGrad)" opacity="0.85"/>
 
-            <!-- Knee cap -->
-            <ellipse id="kneeCap" cx="275" cy="215" rx="14" ry="12" fill="#f0c8a0" stroke="#ddb08a" stroke-width="0.5"/>
-        </g>
+        <!-- Knee cap -->
+        <ellipse id="kneeCap" cx="278" cy="198" rx="15" ry="14" fill="#f0c8a0" stroke="#ddb08a" stroke-width="0.8"/>
 
-        <!-- Motor housing at the bottom -->
-        <rect x="250" y="252" width="60" height="22" rx="5" fill="#ddd" stroke="#bbb" stroke-width="1"/>
-        <circle cx="265" cy="263" r="4" fill="#e74c3c"/>
-        <circle cx="295" cy="263" r="4" fill="#4CAF50"/>
+        <!-- Motor box -->
+        <rect x="255" y="234" width="50" height="18" rx="4" fill="#e0e0e0" stroke="#bbb" stroke-width="0.5"/>
+        <circle cx="268" cy="243" r="3.5" fill="#e74c3c"/>
+        <circle cx="292" cy="243" r="3.5" fill="#4CAF50"/>
 
-        <!-- Controller cable -->
-        <path d="M250,263 Q200,280 160,275 Q130,272 110,285" stroke="#888" stroke-width="2" fill="none"/>
+        <!-- Cable to controller -->
+        <path d="M255,243 C220,260 180,258 140,262 S100,268 80,270" stroke="#999" stroke-width="2" fill="none" stroke-linecap="round"/>
 
         <!-- Remote controller -->
-        <g transform="translate(70,270)">
-            <rect x="0" y="0" width="45" height="30" rx="8" fill="#eee" stroke="#ccc" stroke-width="1" filter="url(#shadow)"/>
-            <rect x="10" y="4" width="25" height="10" rx="2" fill="#c5dff0" stroke="#a0b8cc" stroke-width="0.5"/>
-            <circle cx="15" cy="21" r="4" fill="#e74c3c"/>
-            <circle cx="30" cy="21" r="4" fill="#4CAF50"/>
+        <g transform="translate(42,256)">
+            <rect x="0" y="0" width="48" height="32" rx="10" fill="#f0f0f0" stroke="#ccc" stroke-width="1" filter="url(#shadow)"/>
+            <rect x="10" y="4" width="28" height="11" rx="3" fill="#d0e4f0" stroke="#a8c0d4" stroke-width="0.5"/>
+            <circle cx="16" cy="23" r="4.5" fill="#e74c3c" stroke="#c0392b" stroke-width="0.5"/>
+            <circle cx="32" cy="23" r="4.5" fill="#4CAF50" stroke="#388E3C" stroke-width="0.5"/>
         </g>
     </svg>
 
@@ -211,102 +207,92 @@
         <div class="angle-display">Ohyb: <span id="cpmAngleValue">0°</span></div>
         <div class="speed-control">
             <label>Rychlost:</label>
-            <input type="range" id="cpmSpeed" min="1" max="5" value="3" oninput="updateSpeed()">
+            <input type="range" id="cpmSpeed" min="1" max="5" value="3" oninput="updateCpmSpeed()">
         </div>
     </div>
 </div>
 
 <script>
 (function() {
-    let cpmRunning = false;
-    let cpmAngle = 0;
-    let cpmDirection = 1;
-    let cpmAnimFrame = null;
-    let cpmSpeedFactor = 1;
-    const maxAngle = 120;
-    const minAngle = 0;
+    let running = false;
+    let angle = 0;
+    let direction = 1;
+    let animFrame = null;
+    let speedFactor = 1;
+    const MAX_ANGLE = 110;
+    const PIVOT_X = 280;
+    const PIVOT_Y = 219;
 
-    // Pivot point (knee joint)
-    const pivotX = 280;
-    const pivotY = 236;
+    function toRad(deg) { return deg * Math.PI / 180; }
 
-    function toRad(deg) {
-        return deg * Math.PI / 180;
-    }
-
-    function rotatePoint(x, y, angle) {
-        const rad = toRad(-angle);
-        const dx = x - pivotX;
-        const dy = y - pivotY;
+    function rotPt(x, y, a) {
+        const r = toRad(-a);
+        const dx = x - PIVOT_X, dy = y - PIVOT_Y;
         return {
-            x: pivotX + dx * Math.cos(rad) - dy * Math.sin(rad),
-            y: pivotY + dx * Math.sin(rad) + dy * Math.cos(rad)
+            x: PIVOT_X + dx * Math.cos(r) - dy * Math.sin(r),
+            y: PIVOT_Y + dx * Math.sin(r) + dy * Math.cos(r)
         };
     }
 
-    function updateCpmVisuals(angle) {
-        const transform = `rotate(${-angle} ${pivotX} ${pivotY})`;
+    function update(a) {
+        // Rotate the entire shin group
+        document.getElementById('shinGroup').setAttribute('transform', `rotate(${-a} ${PIVOT_X} ${PIVOT_Y})`);
 
-        // Rotate shin assembly parts
-        document.getElementById('shinRail').setAttribute('transform', transform);
-        document.getElementById('shinPad').setAttribute('transform', transform);
-        document.getElementById('footHolder').setAttribute('transform', transform);
-        document.getElementById('shinStrap1').setAttribute('transform', transform);
-        document.getElementById('shinStrap2').setAttribute('transform', transform);
-        document.getElementById('shinKnob').setAttribute('transform', transform);
+        // Shin skin points
+        const pts = [
+            rotPt(288, 178, a), // top-left
+            rotPt(340, 176, a), // top-mid
+            rotPt(430, 176, a), // top-right-mid
+            rotPt(465, 184, a), // top-right (near foot)
+            rotPt(465, 214, a), // bottom-right
+            rotPt(430, 218, a), // bottom-right-mid
+            rotPt(340, 218, a), // bottom-mid
+            rotPt(288, 214, a), // bottom-left
+        ];
 
-        // Update shin skin path
-        const shinStart = rotatePoint(290, 198, angle);
-        const shinMid1 = rotatePoint(350, 196, angle);
-        const shinMid2 = rotatePoint(430, 198, angle);
-        const shinEnd = rotatePoint(460, 210, angle);
-        const shinEndBot = rotatePoint(460, 228, angle);
-        const shinMid2Bot = rotatePoint(430, 232, angle);
-        const shinMid1Bot = rotatePoint(350, 232, angle);
-        const shinStartBot = rotatePoint(290, 232, angle);
+        document.getElementById('shinSkin').setAttribute('d',
+            `M${pts[0].x},${pts[0].y} C${pts[1].x},${pts[1].y} ${pts[2].x},${pts[2].y} ${pts[3].x},${pts[3].y}` +
+            ` L${pts[4].x},${pts[4].y}` +
+            ` C${pts[5].x},${pts[5].y} ${pts[6].x},${pts[6].y} ${pts[7].x},${pts[7].y} Z`
+        );
 
-        const skinPath = `M${shinStart.x},${shinStart.y} Q${shinMid1.x},${shinMid1.y} ${shinMid2.x},${shinMid2.y} L${shinEnd.x},${shinEnd.y} L${shinEndBot.x},${shinEndBot.y} L${shinMid2Bot.x},${shinMid2Bot.y} Q${shinMid1Bot.x},${shinMid1Bot.y} ${shinStartBot.x},${shinStartBot.y} Z`;
-        document.getElementById('shinSkin').setAttribute('d', skinPath);
+        // Move kneecap slightly
+        const kcY = 198 - a * 0.02;
+        document.getElementById('kneeCap').setAttribute('cy', kcY);
 
-        // Update angle display
-        document.getElementById('cpmAngleValue').textContent = Math.round(angle) + '°';
+        document.getElementById('cpmAngleValue').textContent = Math.round(a) + '°';
     }
 
-    function animateCpm() {
-        if (!cpmRunning) return;
+    function animate() {
+        if (!running) return;
 
-        // Ease in/out using sine wave for smooth motion
-        cpmAngle += cpmDirection * 0.4 * cpmSpeedFactor;
+        // Sinusoidal easing for smooth reversal
+        angle += direction * 0.5 * speedFactor;
 
-        if (cpmAngle >= maxAngle) {
-            cpmAngle = maxAngle;
-            cpmDirection = -1;
-        } else if (cpmAngle <= minAngle) {
-            cpmAngle = minAngle;
-            cpmDirection = 1;
-        }
+        if (angle >= MAX_ANGLE) { angle = MAX_ANGLE; direction = -1; }
+        else if (angle <= 0) { angle = 0; direction = 1; }
 
-        updateCpmVisuals(cpmAngle);
-        cpmAnimFrame = requestAnimationFrame(animateCpm);
+        update(angle);
+        animFrame = requestAnimationFrame(animate);
     }
 
     window.toggleCpmAnimation = function() {
-        cpmRunning = !cpmRunning;
-        const btn = document.getElementById('cpmToggleBtn');
-        if (cpmRunning) {
-            btn.textContent = 'Zastavit';
-            animateCpm();
-        } else {
-            btn.textContent = 'Spustit';
-            if (cpmAnimFrame) cancelAnimationFrame(cpmAnimFrame);
-        }
+        running = !running;
+        document.getElementById('cpmToggleBtn').textContent = running ? 'Zastavit' : 'Spustit';
+        if (running) animate();
+        else if (animFrame) cancelAnimationFrame(animFrame);
     };
 
-    window.updateSpeed = function() {
-        cpmSpeedFactor = parseFloat(document.getElementById('cpmSpeed').value) / 3;
+    window.updateCpmSpeed = function() {
+        speedFactor = parseFloat(document.getElementById('cpmSpeed').value) / 3;
     };
 
-    // Initialize with 0 degrees
-    updateCpmVisuals(0);
+    // Start at 0°
+    update(0);
+
+    // Auto-start the animation
+    running = true;
+    document.getElementById('cpmToggleBtn').textContent = 'Zastavit';
+    animate();
 })();
 </script>
