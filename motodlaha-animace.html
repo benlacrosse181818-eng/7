@@ -1,0 +1,312 @@
+<!-- Animace motodlahy (CPM) - koleno se ohýbá nahoru a dolů -->
+<style>
+    .cpm-animation-container {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: white;
+        border-radius: 16px;
+        padding: 30px 30px 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .cpm-animation-container h2 {
+        margin: 0 0 5px 0;
+        color: #333;
+        font-size: 22px;
+    }
+
+    .cpm-animation-container .subtitle {
+        color: #999;
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .cpm-animation-container svg {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .cpm-animation-container .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+    .cpm-animation-container .btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .cpm-animation-container .btn:hover {
+        background: #c0392b;
+    }
+
+    .cpm-animation-container .angle-display {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        min-width: 80px;
+    }
+
+    .cpm-animation-container .angle-display span {
+        color: #e74c3c;
+    }
+
+    .cpm-animation-container .speed-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .cpm-animation-container .speed-control input[type="range"] {
+        width: 80px;
+        height: 4px;
+        border-radius: 2px;
+        background: #e1e5e9;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+    }
+
+    .cpm-animation-container .speed-control input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #e74c3c;
+        cursor: pointer;
+    }
+
+    .cpm-animation-container .speed-control input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #e74c3c;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media (max-width: 480px) {
+        .cpm-animation-container {
+            padding: 20px 15px 15px;
+            border-radius: 12px;
+        }
+        .cpm-animation-container h2 {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<div class="cpm-animation-container">
+    <h2>Motodlaha - Artromot K1</h2>
+    <p class="subtitle">Kontinuální pasivní pohyb kolena</p>
+
+    <svg id="cpmSvg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="baseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#5ba3d9;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#3a7fc1;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#c0c0c0;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#f5d0b0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#e8b88a;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="padGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#f0f4f8;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#dce3eb;stop-opacity:1" />
+            </linearGradient>
+            <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+                <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+            </filter>
+        </defs>
+
+        <!-- Base platform -->
+        <ellipse cx="300" cy="275" rx="250" ry="18" fill="url(#baseGrad)" filter="url(#shadow)"/>
+        <text x="300" y="280" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial">ARTROMOT - K1</text>
+
+        <!-- Thigh rail (fixed) -->
+        <g id="thighRail">
+            <rect x="80" y="230" width="200" height="12" rx="3" fill="url(#metalGrad)" stroke="#aaa" stroke-width="0.5"/>
+            <!-- Thigh pad -->
+            <rect x="90" y="210" width="170" height="22" rx="6" fill="url(#padGrad)" stroke="#ccc" stroke-width="0.5"/>
+            <!-- Thigh straps -->
+            <rect x="120" y="205" width="12" height="32" rx="3" fill="#333"/>
+            <rect x="200" y="205" width="12" height="32" rx="3" fill="#333"/>
+            <!-- Adjustment knobs on thigh rail -->
+            <circle cx="100" cy="247" r="5" fill="#333"/>
+            <circle cx="260" cy="247" r="5" fill="#333"/>
+        </g>
+
+        <!-- Hip joint (pivot) -->
+        <circle cx="280" cy="236" r="7" fill="#555" stroke="#333" stroke-width="1"/>
+
+        <!-- Moving shin assembly - pivots at knee -->
+        <g id="shinAssembly">
+            <!-- Shin rail -->
+            <rect id="shinRail" x="280" y="230" width="200" height="12" rx="3" fill="url(#metalGrad)" stroke="#aaa" stroke-width="0.5" transform-origin="280 236"/>
+            <!-- Shin pad -->
+            <rect id="shinPad" x="310" y="210" width="140" height="22" rx="6" fill="url(#padGrad)" stroke="#ccc" stroke-width="0.5" transform-origin="280 236"/>
+            <!-- Foot holder -->
+            <rect id="footHolder" x="460" y="200" width="30" height="45" rx="5" fill="url(#padGrad)" stroke="#ccc" stroke-width="1" transform-origin="280 236"/>
+            <!-- Shin straps -->
+            <rect id="shinStrap1" x="350" y="205" width="12" height="32" rx="3" fill="#333" transform-origin="280 236"/>
+            <rect id="shinStrap2" x="420" y="205" width="12" height="32" rx="3" fill="#333" transform-origin="280 236"/>
+            <!-- Adjustment knob on shin -->
+            <circle id="shinKnob" cx="470" cy="247" r="5" fill="#333" transform-origin="280 236"/>
+        </g>
+
+        <!-- Leg (skin) on top of the machine -->
+        <!-- Thigh -->
+        <g id="legGroup">
+            <!-- Thigh skin -->
+            <path id="thighSkin" d="M120,215 Q130,200 170,198 L240,198 Q260,200 270,215 L270,228 Q260,232 240,232 L140,232 Q125,230 120,215 Z" fill="url(#skinGrad)" opacity="0.9"/>
+
+            <!-- Shin skin - will be animated -->
+            <path id="shinSkin" d="" fill="url(#skinGrad)" opacity="0.9"/>
+
+            <!-- Knee cap -->
+            <ellipse id="kneeCap" cx="275" cy="215" rx="14" ry="12" fill="#f0c8a0" stroke="#ddb08a" stroke-width="0.5"/>
+        </g>
+
+        <!-- Motor housing at the bottom -->
+        <rect x="250" y="252" width="60" height="22" rx="5" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+        <circle cx="265" cy="263" r="4" fill="#e74c3c"/>
+        <circle cx="295" cy="263" r="4" fill="#4CAF50"/>
+
+        <!-- Controller cable -->
+        <path d="M250,263 Q200,280 160,275 Q130,272 110,285" stroke="#888" stroke-width="2" fill="none"/>
+
+        <!-- Remote controller -->
+        <g transform="translate(70,270)">
+            <rect x="0" y="0" width="45" height="30" rx="8" fill="#eee" stroke="#ccc" stroke-width="1" filter="url(#shadow)"/>
+            <rect x="10" y="4" width="25" height="10" rx="2" fill="#c5dff0" stroke="#a0b8cc" stroke-width="0.5"/>
+            <circle cx="15" cy="21" r="4" fill="#e74c3c"/>
+            <circle cx="30" cy="21" r="4" fill="#4CAF50"/>
+        </g>
+    </svg>
+
+    <div class="controls">
+        <button class="btn" id="cpmToggleBtn" onclick="toggleCpmAnimation()">Spustit</button>
+        <div class="angle-display">Ohyb: <span id="cpmAngleValue">0°</span></div>
+        <div class="speed-control">
+            <label>Rychlost:</label>
+            <input type="range" id="cpmSpeed" min="1" max="5" value="3" oninput="updateSpeed()">
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    let cpmRunning = false;
+    let cpmAngle = 0;
+    let cpmDirection = 1;
+    let cpmAnimFrame = null;
+    let cpmSpeedFactor = 1;
+    const maxAngle = 120;
+    const minAngle = 0;
+
+    // Pivot point (knee joint)
+    const pivotX = 280;
+    const pivotY = 236;
+
+    function toRad(deg) {
+        return deg * Math.PI / 180;
+    }
+
+    function rotatePoint(x, y, angle) {
+        const rad = toRad(-angle);
+        const dx = x - pivotX;
+        const dy = y - pivotY;
+        return {
+            x: pivotX + dx * Math.cos(rad) - dy * Math.sin(rad),
+            y: pivotY + dx * Math.sin(rad) + dy * Math.cos(rad)
+        };
+    }
+
+    function updateCpmVisuals(angle) {
+        const transform = `rotate(${-angle} ${pivotX} ${pivotY})`;
+
+        // Rotate shin assembly parts
+        document.getElementById('shinRail').setAttribute('transform', transform);
+        document.getElementById('shinPad').setAttribute('transform', transform);
+        document.getElementById('footHolder').setAttribute('transform', transform);
+        document.getElementById('shinStrap1').setAttribute('transform', transform);
+        document.getElementById('shinStrap2').setAttribute('transform', transform);
+        document.getElementById('shinKnob').setAttribute('transform', transform);
+
+        // Update shin skin path
+        const shinStart = rotatePoint(290, 198, angle);
+        const shinMid1 = rotatePoint(350, 196, angle);
+        const shinMid2 = rotatePoint(430, 198, angle);
+        const shinEnd = rotatePoint(460, 210, angle);
+        const shinEndBot = rotatePoint(460, 228, angle);
+        const shinMid2Bot = rotatePoint(430, 232, angle);
+        const shinMid1Bot = rotatePoint(350, 232, angle);
+        const shinStartBot = rotatePoint(290, 232, angle);
+
+        const skinPath = `M${shinStart.x},${shinStart.y} Q${shinMid1.x},${shinMid1.y} ${shinMid2.x},${shinMid2.y} L${shinEnd.x},${shinEnd.y} L${shinEndBot.x},${shinEndBot.y} L${shinMid2Bot.x},${shinMid2Bot.y} Q${shinMid1Bot.x},${shinMid1Bot.y} ${shinStartBot.x},${shinStartBot.y} Z`;
+        document.getElementById('shinSkin').setAttribute('d', skinPath);
+
+        // Update angle display
+        document.getElementById('cpmAngleValue').textContent = Math.round(angle) + '°';
+    }
+
+    function animateCpm() {
+        if (!cpmRunning) return;
+
+        // Ease in/out using sine wave for smooth motion
+        cpmAngle += cpmDirection * 0.4 * cpmSpeedFactor;
+
+        if (cpmAngle >= maxAngle) {
+            cpmAngle = maxAngle;
+            cpmDirection = -1;
+        } else if (cpmAngle <= minAngle) {
+            cpmAngle = minAngle;
+            cpmDirection = 1;
+        }
+
+        updateCpmVisuals(cpmAngle);
+        cpmAnimFrame = requestAnimationFrame(animateCpm);
+    }
+
+    window.toggleCpmAnimation = function() {
+        cpmRunning = !cpmRunning;
+        const btn = document.getElementById('cpmToggleBtn');
+        if (cpmRunning) {
+            btn.textContent = 'Zastavit';
+            animateCpm();
+        } else {
+            btn.textContent = 'Spustit';
+            if (cpmAnimFrame) cancelAnimationFrame(cpmAnimFrame);
+        }
+    };
+
+    window.updateSpeed = function() {
+        cpmSpeedFactor = parseFloat(document.getElementById('cpmSpeed').value) / 3;
+    };
+
+    // Initialize with 0 degrees
+    updateCpmVisuals(0);
+})();
+</script>
