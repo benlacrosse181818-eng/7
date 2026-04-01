@@ -1,0 +1,166 @@
+[
+  {
+    "id": "fn-motol",
+    "name": "FN Motol",
+    "city": "Praha",
+    "lat": 50.0713,
+    "lng": 14.3295,
+    "devices": [
+      { "id": "CT-01", "name": "CT Siemens Somatom", "type": "CT", "lastService": "2025-11-15" },
+      { "id": "MR-02", "name": "MRI Philips Ingenia", "type": "MRI", "lastService": "2025-10-20" }
+    ]
+  },
+  {
+    "id": "fn-brno",
+    "name": "FN Brno",
+    "city": "Brno",
+    "lat": 49.1873,
+    "lng": 16.5795,
+    "devices": [
+      { "id": "CT-03", "name": "CT GE Revolution", "type": "CT", "lastService": "2025-09-10" },
+      { "id": "RTG-04", "name": "RTG Siemens Multix", "type": "RTG", "lastService": "2025-12-01" },
+      { "id": "USG-05", "name": "USG Philips Affiniti", "type": "USG", "lastService": "2025-08-22" }
+    ]
+  },
+  {
+    "id": "fn-olomouc",
+    "name": "FN Olomouc",
+    "city": "Olomouc",
+    "lat": 49.5936,
+    "lng": 17.2683,
+    "devices": [
+      { "id": "MR-06", "name": "MRI Siemens Magnetom", "type": "MRI", "lastService": "2025-07-18" },
+      { "id": "CT-07", "name": "CT Philips Brilliance", "type": "CT", "lastService": "2025-11-05" }
+    ]
+  },
+  {
+    "id": "fn-ostrava",
+    "name": "FN Ostrava",
+    "city": "Ostrava",
+    "lat": 49.8209,
+    "lng": 18.1606,
+    "devices": [
+      { "id": "CT-08", "name": "CT Siemens Somatom Force", "type": "CT", "lastService": "2025-06-30" },
+      { "id": "RTG-09", "name": "RTG Samsung GC85A", "type": "RTG", "lastService": "2025-10-12" },
+      { "id": "MR-10", "name": "MRI GE Signa", "type": "MRI", "lastService": "2025-09-01" }
+    ]
+  },
+  {
+    "id": "nemocnice-prostejov",
+    "name": "Nemocnice Prostějov",
+    "city": "Prostějov",
+    "lat": 49.4718,
+    "lng": 17.1106,
+    "devices": [
+      { "id": "RTG-11", "name": "RTG Siemens Ysio", "type": "RTG", "lastService": "2025-05-14" },
+      { "id": "USG-12", "name": "USG GE Logiq", "type": "USG", "lastService": "2025-11-28" }
+    ]
+  },
+  {
+    "id": "fn-plzen",
+    "name": "FN Plzeň",
+    "city": "Plzeň",
+    "lat": 49.7474,
+    "lng": 13.3776,
+    "devices": [
+      { "id": "CT-13", "name": "CT Toshiba Aquilion", "type": "CT", "lastService": "2025-08-09" }
+    ]
+  },
+  {
+    "id": "nemocnice-jihlava",
+    "name": "Nemocnice Jihlava",
+    "city": "Jihlava",
+    "lat": 49.3961,
+    "lng": 15.5912,
+    "devices": [
+      { "id": "RTG-14", "name": "RTG Philips DigitalDiagnost", "type": "RTG", "lastService": "2025-10-30" },
+      { "id": "USG-15", "name": "USG Siemens Acuson", "type": "USG", "lastService": "2025-07-22" }
+    ]
+  },
+  {
+    "id": "nemocnice-havirov",
+    "name": "Nemocnice Havířov",
+    "city": "Havířov",
+    "lat": 49.7798,
+    "lng": 18.4302,
+    "devices": [
+      { "id": "RTG-16", "name": "RTG Samsung GC70", "type": "RTG", "lastService": "2025-04-15" }
+    ]
+  },
+  {
+    "id": "nemocnice-zlin",
+    "name": "Krajská nemocnice Zlín",
+    "city": "Zlín",
+    "lat": 49.2248,
+    "lng": 17.6688,
+    "devices": [
+      { "id": "CT-17", "name": "CT Siemens Definition", "type": "CT", "lastService": "2025-09-25" },
+      { "id": "MR-18", "name": "MRI Philips Achieva", "type": "MRI", "lastService": "2025-06-11" }
+    ]
+  },
+  {
+    "id": "nemocnice-pardubice",
+    "name": "Nemocnice Pardubice",
+    "city": "Pardubice",
+    "lat": 50.0343,
+    "lng": 15.7812,
+    "devices": [
+      { "id": "RTG-19", "name": "RTG GE Optima", "type": "RTG", "lastService": "2025-11-14" },
+      { "id": "USG-20", "name": "USG Philips EPIQ", "type": "USG", "lastService": "2025-03-30" }
+    ]
+  },
+  {
+    "id": "nemocnice-liberec",
+    "name": "Krajská nemocnice Liberec",
+    "city": "Liberec",
+    "lat": 50.7663,
+    "lng": 15.0543,
+    "devices": [
+      { "id": "CT-21", "name": "CT Canon Aquilion ONE", "type": "CT", "lastService": "2025-08-17" }
+    ]
+  },
+  {
+    "id": "nemocnice-cb",
+    "name": "Nemocnice České Budějovice",
+    "city": "České Budějovice",
+    "lat": 48.9745,
+    "lng": 14.4743,
+    "devices": [
+      { "id": "MR-22", "name": "MRI Siemens Vida", "type": "MRI", "lastService": "2025-10-05" },
+      { "id": "RTG-23", "name": "RTG Philips CombiDiagnost", "type": "RTG", "lastService": "2025-07-19" }
+    ]
+  },
+  {
+    "id": "nemocnice-hk",
+    "name": "FN Hradec Králové",
+    "city": "Hradec Králové",
+    "lat": 50.2094,
+    "lng": 15.8327,
+    "devices": [
+      { "id": "CT-24", "name": "CT Siemens Somatom Edge", "type": "CT", "lastService": "2025-09-12" },
+      { "id": "MR-25", "name": "MRI GE Discovery", "type": "MRI", "lastService": "2025-05-28" },
+      { "id": "RTG-26", "name": "RTG Siemens Luminos", "type": "RTG", "lastService": "2025-11-20" }
+    ]
+  },
+  {
+    "id": "nemocnice-kv",
+    "name": "Nemocnice Karlovy Vary",
+    "city": "Karlovy Vary",
+    "lat": 50.2325,
+    "lng": 12.8713,
+    "devices": [
+      { "id": "RTG-27", "name": "RTG Samsung GC85A", "type": "RTG", "lastService": "2025-06-05" }
+    ]
+  },
+  {
+    "id": "nemocnice-opava",
+    "name": "Slezská nemocnice Opava",
+    "city": "Opava",
+    "lat": 49.9382,
+    "lng": 17.9047,
+    "devices": [
+      { "id": "USG-28", "name": "USG GE Voluson", "type": "USG", "lastService": "2025-08-30" },
+      { "id": "RTG-29", "name": "RTG Philips Bucky", "type": "RTG", "lastService": "2025-04-20" }
+    ]
+  }
+]
